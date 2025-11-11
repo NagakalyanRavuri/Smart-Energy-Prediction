@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Smart Home Energy - LSTM & RNN</title>
+	<link rel="stylesheet" href="styles.css" />
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+	<header class="header">
+		<h1>Smart Home Energy Prediction</h1>
+		<p>LSTM vs RNN on smart home energy consumption</p>
+	</header>
+	<main class="container">
+		<section class="controls">
+			<button id="trainBtn">Run Training</button>
+			<button id="loadBtn" title="Load precomputed results from frontend/data.json">Load Results</button>
+			<span id="status" class="status">Idle</span>
+		</section>
+		<section class="metrics" id="metrics">
+			<div class="metric-card">
+				<h3>RNN</h3>
+				<p><strong>MAE:</strong> <span id="rnnMae">-</span></p>
+				<p><strong>RMSE:</strong> <span id="rnnRmse">-</span></p>
+			</div>
+			<div class="metric-card">
+				<h3>LSTM</h3>
+				<p><strong>MAE:</strong> <span id="lstmMae">-</span></p>
+				<p><strong>RMSE:</strong> <span id="lstmRmse">-</span></p>
+			</div>
+		</section>
+		<section class="chart-section">
+			<canvas id="predChart"></canvas>
+		</section>
+		<section class="info">
+			<h2>About</h2>
+			<p>This demo trains Simple RNN and LSTM models on smart home energy data and compares predictions against actual consumption on a test split.</p>
+			<ul>
+				<li>Sequence length: 48</li>
+				<li>Scaling: MinMax</li>
+				<li>Target: next step energy consumption</li>
+			</ul>
+		</section>
+	</main>
+	<footer class="footer">
+		<span>Built with Flask, TensorFlow, and Chart.js</span>
+	</footer>
+	<script src="app.js"></script>
+	</body>
+	</html>
+
+
